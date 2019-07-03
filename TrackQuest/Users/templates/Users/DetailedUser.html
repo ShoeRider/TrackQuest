@@ -1,0 +1,44 @@
+{% extends 'Base.html' %}
+
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+
+<h><b>{{ Prof.user_pk }}'s Profile</b></h>
+<br />
+<img src="{{Prof.pic}}" width="500" height="256">
+<hr>
+<br />
+
+
+{% if User_Prof %}
+  Change:
+    <small>( <a href=""> UserName</a> / <a href=""> Password</a>)</small>
+    <br /><br />
+{% else %}
+{% endif %}
+
+<h><b>About  {{ Prof.user_pk }}:</b></h>
+{% if User_Prof %}<small>(<a href="{% url 'Edit_UserProfile' Prof.user_pk %}">Edit Profile</a>)</small>{% else %}<a href="{% url 'change_friendship' 'add' Prof.pk%}"> Send friend request </a>{% endif %}
+<hr>
+<p>Name : {{Prof.name}}</p>
+<p>Email: {{Prof.email}}</p>
+<p>Biography: {{Prof.bio}}</p>
+<p>Affiliation: {{Prof.affiliation}}</p>
+
+
+
+<!--
+<br />
+<h><b>{{ Prof.user_pk }}'s Groups</b></h>
+<hr>
+
+
+
+<br />
+<h><b>{{ Prof.user_pk }}'s Models</b></h>
+<hr>
+-->
+{% endblock %}

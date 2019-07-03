@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<!-- TO LIST FRIENDS -->
+Friends List:
+<hr>
+{% endif %}
+
+<head>
+    <title>Search Users</title>
+</head>
+<body>
+
+    <form action="/user/search/Results/" method="get">
+        <h>Search Users: </h><input type="text" name="q">
+        <input type="submit" value="Search">
+    </form>
+</body>
+
+
+{% endblock %}

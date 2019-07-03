@@ -1,0 +1,100 @@
+<!-- templates/Base.html-->
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>{% block title %}TrackQuest{% endblock %}</title>
+
+  <!-- Global styling -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/_site.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/socialBar.css' %}"/>
+  <!-- Per-view styling -->
+  {% block stylesheets %}
+  {% endblock %}
+
+  <!-- Global JS (nothing rn) -->
+  <!-- Per-view JS -->
+  {% block javascripts %}
+  {% endblock %}
+
+
+</head>
+{% include 'templates/Loading_Box/LoadingStyle.html' %}
+
+<body>
+
+<div class="container">
+  <navbar>
+    <a href="">
+
+    </a>
+    <div id="nav-middle">
+      <a href="">
+
+        <h1> TrackQuest</h1>
+      </a>
+    </div>
+    <div id="user_section">
+      {% if user.is_authenticated %}
+        <div class="dropdown">
+          <button class="dropbtn">Welcome {{ user.username }}!</button>
+          <div class="dropdown-content">
+
+            <a href="{% url 'View_User' user.username %}">Profile</a>
+            <a href="">Dashboard</a>
+            <a href="">Friends</a>
+            <a href="">Search Users</a>
+            <a href="">MyGroups</a>
+          </div>
+        </div>|
+        <a href="{% url 'LogOut' %}">logout</a>
+      {% else %}
+            <a href="{% url 'LogIn' %}">login</a> | <a href="{% url 'SignUp' %}">SignUp</a>
+      {% endif %}
+    </div>
+  </navbar>
+  <div class="sidenav">
+    <a href="{% url 'View_Site_Dashboard' %}">Home</a>
+    <a href="">Users</a>
+    <a href="">Quizes</a>
+    <a href="">Classes</a>
+    <a href="{% url 'Base' %}">Base</a>
+
+
+  </div>
+  <div class="main">
+    {% if user.is_authenticated %}
+      {% if messages %}
+      Messages:
+      <ul class="messages">
+          {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}><font color="red">{{ message }}</font></li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+    {% else %}
+    {% endif %}
+
+
+    {% block content %}
+    {% endblock %}
+  </div>
+</div>
+<footer>
+  <div class="footer">
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Sponsors</a>
+  </div>
+  <div class="socialBar">
+    <a href="#">
+      <img class="off" src="" title="Email">
+      <img class="on" src="" title="Email">
+    </a>
+  </div>
+</footer>
+</body>
+</html>

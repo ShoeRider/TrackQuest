@@ -1,0 +1,162 @@
+/* Global */
+html{
+  min-height: 100%
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  color:#1d1d1d;
+  min-height: 100%;
+}
+h1 {
+  color: #40798c;
+  text-align: center;
+  font-size: 36px;
+  padding: 10px;
+  margin: 15px 0 0 0;
+}
+h2 {
+  font-size: 28px;
+  color:#7371fc;
+  margin: 10px 0 0 0;
+}
+/* Container, Sidenav, Main */
+#
+.container{
+  background-color: #e5e7e6;
+  display: grid;
+  grid-template-areas:
+    'header header header header header'
+    'menu main main main main'
+    'menu footer footer footer footer';
+  /* grid-template-rows: 10% 80% 10%; */
+  grid-template-columns: 15% 25% 20% 20% 20%;
+}
+
+.container .sidenav {
+  grid-area: menu;
+  display: inline-block;
+  z-index: 1;
+  background: #41715e;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.container .sidenav a {
+  padding: 15px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #353535;
+  display: block;
+}
+
+.container .sidenav a:hover {
+  color: #064579;
+}
+
+.container .main {
+  margin: 1% 1% 2% 2%;
+  grid-area: main;
+  display: inline-block;
+  padding-bottom: 20px;
+  font-size: 28px; /* Increased text to enable scrolling */
+}
+
+.checkbox_label {
+  font-size: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .container .sidenav {padding-top: 15px;}
+  .container .sidenav a {font-size: 18px;}
+}
+
+/* nav bar */
+navbar{
+  display: grid;
+  grid-template-areas:
+    'nleft nmiddle nright';
+  grid-template-columns: 10% 70% 20%;
+  background-color: #57977d;
+  grid-area: header;
+}
+navbar a {
+  grid-area: nleft;
+}
+navbar img{
+  margin-left: 5px;
+  height: 9vh;
+}
+navbar #nav-middle {
+  grid-area: nmiddle;
+}
+navbar > div > a{
+  color: #000;
+  text-decoration: none;
+}
+navbar h1{
+  color: #353535;
+  position: relative;
+  display: block;
+  vertical-align: top;
+  text-align: center;
+  font-size:5vh;
+  margin: 0 0 0 0;
+  justify-self: stretch;
+}
+navbar .dropbtn {
+  height:100%;
+  background-color: #8fe388;
+}
+navbar .dropdown {
+  background-color: #8fe388;
+}
+navbar #user_section{
+  display: block;
+  grid-area: nright;
+  z-index: 1;
+  height: 100%;
+}
+/* Footer styling */
+footer{
+  grid-area: footer;
+  padding: 25px 0 25px 200px;
+  background-color: #57977d;
+}
+footer {
+  display: block;
+  text-align: center;
+}
+footer a{
+  margin-right: 10px;
+  color: #000;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+footer .socialBar{
+  padding: 30px 0;
+}
+
+footer  a:last-of-type{
+  margin-right: 0;
+}
+
+#button-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 30px 0 0;
+}
+
+#upload-model {
+  background-color: #7371fc; /* Green */
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}

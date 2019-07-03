@@ -1,0 +1,27 @@
+
+<!-- templates/home.html-->
+{% extends 'Base.html' %}
+
+{% block title %}Data Sets {% endblock %}
+
+{% block content %}
+
+
+    <h1>Welcome to your Dashboard</h1>
+
+    View Data Sets:
+
+    <section>
+    <br />
+    <br />
+    <h><b>Subscribed to DataSets</b></h>
+    <hr>
+
+
+    </section>
+  {% if user.is_authenticated %}
+  {% else %}
+    <p>You are not logged in</p>
+    <a href="{% url 'LogIn' %}">login</a>
+  {% endif %}
+{% endblock %}
